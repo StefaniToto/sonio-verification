@@ -11,7 +11,7 @@ export class Tab1Page {
     console.log("open sonio");
 
     await Browser.open({
-      url: "https://staging.id.sonio-group.com/start/en/647efca334a855cf37cf58c3?session=652f9278b180801d2d11d708&flowid=647efd9734a855cf37cf58c5",
+      url: "https://staging.id.sonio-group.com/",
     });
   }
 
