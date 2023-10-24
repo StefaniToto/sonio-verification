@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Camera, CameraResultType } from "@capacitor/camera";
 // import { Browser } from "@capacitor/browser";
 import {
   InAppBrowser,
@@ -10,8 +11,7 @@ import {
   styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page {
-  url =
-    "https://staging.id.sonio-group.com/start/en/647efca334a855cf37cf58c3/document-select?sessi[…]52f9278b180801d2d11d708&flowid=647efd9734a855cf37cf58c5";
+  url = "https://staging.id.sonio-group.com/";
   url1 = "https://webcam-test.com/";
   openSonio() {
     console.log("open sonio");
@@ -28,16 +28,32 @@ export class Tab1Page {
       location: "no",
       toolbar: "no",
     };
-    // const browser = this.iab.create(this.url, "_blank", defaultOptions);
-    window.open(this.url);
+    const browser = this.iab.create(this.url, "_self", defaultOptions);
+    // window.open(this.url);
     // this.iab.open({
     //   url: this.url,
     // });
 
     // browser.close();
 
-    // setTimeout(() => browser.close, 5000);
+    setTimeout(() => browser.close, 5000);
   }
+  enableCamera() {
+    // const image = await Camera.getPhoto({
+    //   quality: 90,
+    //   allowEditing: true,
+    //   resultType: CameraResultType.Uri,
+    // });
 
+    // image.webPath will contain a path that can be set as an image src.
+    // You can access the original file using image.path, which can be
+    // passed to the Filesystem API to read the raw data of the image,
+    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+    // var imageUrl = image.webPath;
+    Camera.requestPermissions();
+    Camera.checkPermissions().then((x) =>
+      console.log("chec  for permissions", x)
+    );
+  }
   constructor(private iab: InAppBrowser) {}
 }

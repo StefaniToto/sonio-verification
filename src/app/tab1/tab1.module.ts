@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { Tab1Page } from "./tab1.page";
 import { ExploreContainerComponentModule } from "../explore-container/explore-container.module";
 import { InAppBrowser } from "@ionic-native/in-app-browser/ngx";
+import { Camera, CameraResultType } from "@capacitor/camera";
 @NgModule({
   imports: [
     IonicModule,
