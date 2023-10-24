@@ -10,7 +10,8 @@ import {
   styleUrls: ["tab1.page.scss"],
 })
 export class Tab1Page {
-  url = "https://staging.id.sonio-group.com/";
+  url =
+    "https://staging.id.sonio-group.com/start/en/647efca334a855cf37cf58c3/document-select?sessi[…]52f9278b180801d2d11d708&flowid=647efd9734a855cf37cf58c5";
 
   async openSonio() {
     let defaultOptions: InAppBrowserOptions = {
