@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ActionSheetController } from "@ionic/angular";
 import { UserPhoto, PhotoService } from "../services/photo.service";
+import {SonioService} from '../services/sonio.service';
 
 @Component({
   selector: "app-tab2",
@@ -10,7 +11,8 @@ import { UserPhoto, PhotoService } from "../services/photo.service";
 export class Tab2Page {
   constructor(
     public photoService: PhotoService,
-    public actionSheetController: ActionSheetController
+    public actionSheetController: ActionSheetController,
+    private downloadService: SonioService
   ) {}
 
   async ngOnInit() {
@@ -40,5 +42,11 @@ export class Tab2Page {
       ],
     });
     await actionSheet.present();
+  }
+
+  downloadPDF() {
+    this.downloadService
+      .downloadPeriodicStatement()
+      // .subscribe((x) => console.log(x, "subscriberd"));
   }
 }
